@@ -81,6 +81,22 @@ for a, b, result in random_cases:
   random_msgs.extend( [GcdUnitMsgs.req(a, b), GcdUnitMsgs.resp( result )] )
 
 #-------------------------------------------------------------------------
+# Test Case: coprime
+#-------------------------------------------------------------------------
+
+coprime_cases = [
+  ( 15,     11    , 1    ),
+  ( 23,     111   , 1    ),
+  ( 3,      8     , 1    ),
+  ( 7,      11    , 1    ),
+  ( 5,      4     , 1    ),
+]
+
+coprime_msgs = []
+for a, b, result in coprime_cases:
+  coprime_msgs.extend( [GcdUnitMsgs.req(a, b), GcdUnitMsgs.resp( result )] )
+
+#-------------------------------------------------------------------------
 # Test Case Table
 #-------------------------------------------------------------------------
 
@@ -91,6 +107,8 @@ test_case_table = mk_test_case_table([
   [ "basic_0x5",  basic_msgs,  0,         5,         ],
   [ "basic_3x9",  basic_msgs,  3,         9,         ],
   [ "random_3x9", random_msgs, 3,         9,         ],
+  [ "coprime_0x0", coprime_msgs, 0,       0,         ],
+  [ "coprime_1x3", coprime_msgs, 1,       3,         ],
 ])
 #-------------------------------------------------------------------------
 # Test cases

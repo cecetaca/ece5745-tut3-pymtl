@@ -9,6 +9,9 @@ from pymtl3 import *
 
 class RegIncr( Component ):
 
+  def line_trace( s ):
+      return f"in:{s.in_} ({s.reg_out}) out:{s.out}"
+  
   # Constructor
 
   def construct( s ):
@@ -35,4 +38,8 @@ class RegIncr( Component ):
     # and later you will insert a line tracing function to compactly
     # output the input, register, and output values.
     # ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    @update
+    def block2():
+      s.out @= s.reg_out + 1
+
 

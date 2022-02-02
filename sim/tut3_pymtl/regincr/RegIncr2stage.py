@@ -31,6 +31,12 @@ class RegIncr2stage( Component ):
     # two-stage registered incrementer.
     # ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+    # Second stage
+     
+    s.reg_incr_1 = RegIncr()
+    s.reg_incr_0.out //= s.reg_incr_1.in_
+    s.reg_incr_1.out //= s.out 
+
   # Line tracing
 
   def line_trace( s ):
